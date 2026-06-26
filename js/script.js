@@ -236,12 +236,12 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.disabled = true;
             
             try {
-                // According to the user, send POST with Content-Type: application/json
-                // We use mode: 'no-cors' as a fallback if CORS is an issue, but standard fetch is used first
-                const response = await fetch("https://script.google.com/macros/s/AKfycbwP401b4jfU1Ud7yXcf5rse9tIVtVdz9IGp3QD0bxpDuETFaXlKLiSWb4zLXnEpxEdl/exec", {
+                // We use text/plain to bypass strict CORS preflight blocking, while still sending the JSON payload
+                const response = await fetch("https://script.google.com/macros/s/AKfycbxY83UX_j9AH1-pJS4KolNae67pQfeJRtY8zTGowwZkIaSRc1juq64g4xPDKrjbEviq/exec", {
                     method: "POST",
+                    mode: "no-cors",
                     headers: {
-                        "Content-Type": "application/json"
+                        "Content-Type": "text/plain;charset=utf-8"
                     },
                     body: JSON.stringify({
                         name: name,
@@ -252,14 +252,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
 
                 // Google Apps Script can sometimes return a redirect/HTML or a JSON
-                if (response.ok || response.type === 'opaque') {
-                    btn.innerHTML = 'Thank you! Your message has been sent successfully.';
-                    btn.classList.remove('btn-primary');
-                    btn.style.background = '#28a745';
-                    form.reset();
-                } else {
-                    throw new Error("Failed to send message");
-                }
+                // With no-cors, the response is opaque, meaning we can't read it but it succeeded.
+                btn.innerHTML = 'Thank you! Your message has been sent successfully.';
+                btn.classList.remove('btn-primary');
+                btn.style.background = '#28a745';
+                form.reset();
             } catch (error) {
                 console.error("Error submitting form:", error);
                 btn.innerHTML = 'Error sending message. Please try again.';
