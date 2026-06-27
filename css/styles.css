@@ -230,10 +230,32 @@ img {
 }
 
 .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     font-family: var(--font-heading);
     font-size: 1.5rem;
     font-weight: 800;
     letter-spacing: -0.5px;
+}
+
+.logo-wrapper {
+    position: relative;
+    display: flex;
+    mix-blend-mode: screen;
+}
+
+.brand-logo {
+    height: 30px;
+    width: auto;
+    object-fit: contain;
+}
+
+.logo-tint {
+    position: absolute;
+    inset: 0;
+    background-color: var(--clr-primary-red, #e62020);
+    mix-blend-mode: multiply;
 }
 
 .logo-text {
