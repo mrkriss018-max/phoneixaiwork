@@ -177,14 +177,14 @@
                     <!-- Video Box 1 -->
                     <div class="featured-video-box">
                         <div class="video-box-label"><i class="fas fa-film"></i> Video 1</div>
-                        <video controls playsinline class="inline-video">
+                        <video autoplay muted loop playsinline class="inline-video interact-to-unmute">
                             <source src="assets/video1.MP4" type="video/mp4">
                         </video>
                     </div>
                     <!-- Video Box 2 -->
                     <div class="featured-video-box">
                         <div class="video-box-label"><i class="fas fa-film"></i> Video 2</div>
-                        <video controls playsinline class="inline-video">
+                        <video autoplay muted loop playsinline class="inline-video interact-to-unmute">
                             <source src="assets/video2.MP4" type="video/mp4">
                         </video>
                     </div>
@@ -194,14 +194,14 @@
                     <!-- Video Box 3 -->
                     <div class="featured-video-box">
                         <div class="video-box-label"><i class="fas fa-film"></i> Video 3</div>
-                        <video controls playsinline class="inline-video">
+                        <video autoplay muted loop playsinline class="inline-video interact-to-unmute">
                             <source src="assets/video3.MP4" type="video/mp4">
                         </video>
                     </div>
                     <!-- Video Box 4 -->
                     <div class="featured-video-box">
                         <div class="video-box-label"><i class="fas fa-film"></i> Video 4</div>
-                        <video controls playsinline class="inline-video">
+                        <video autoplay muted loop playsinline class="inline-video interact-to-unmute">
                             <source src="assets/video4.MP4" type="video/mp4">
                         </video>
                     </div>
@@ -213,50 +213,112 @@
             </div>
         </section>
 
-        <!-- Photo Portfolio Section -->
-        <section class="photo-portfolio section bg-darker" id="photo-portfolio">
+        <!-- Product Showcase Section -->
+        <section class="product-showcase section" id="product-showcase">
             <div class="container">
                 <div class="section-header text-center fade-up">
-                    <h2 class="section-title">Photo Portfolio</h2>
-                    <p class="section-subtitle">Visual storytelling through stunning imagery</p>
+                    <h2 class="section-title">Product Showcase</h2>
+                    <p class="section-subtitle">Explore every product from every angle.</p>
                     <div class="divider center"></div>
                 </div>
-                <div class="photo-grid fade-up delay-1">
-                    <div class="photo-card">
-                        <div class="photo-wrapper">
-                            <img src="assets/photo1.PNG" alt="Creative Work 1">
-                            <div class="photo-overlay">
-                                <i class="fas fa-expand"></i>
+                
+                <div class="product-grid fade-up delay-1">
+                    <!-- Product 1: Dior -->
+                    <div class="product-card" data-product="dior">
+                        <h3 class="product-title">Dior</h3>
+                        <div class="carousel-container">
+                            <div class="carousel-main" tabindex="0">
+                                <img src="assets/dior-1.jpg.PNG" alt="Dior Angle 1" class="carousel-img active">
+                                <img src="assets/dior-2.jpg.PNG" alt="Dior Angle 2" class="carousel-img">
+                                <img src="assets/dior-3.jpg.PNG" alt="Dior Angle 3" class="carousel-img">
+                                <img src="assets/dior-4.jpg.PNG" alt="Dior Angle 4" class="carousel-img">
+                                
+                                <button class="carousel-btn prev-btn" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
+                                <button class="carousel-btn next-btn" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
+                                <div class="carousel-counter">1 / 4</div>
+                            </div>
+                            <div class="carousel-thumbs">
+                                <div class="thumb-wrap active" data-index="0"><img src="assets/dior-1.jpg.PNG" alt="Thumb 1"></div>
+                                <div class="thumb-wrap" data-index="1"><img src="assets/dior-2.jpg.PNG" alt="Thumb 2"></div>
+                                <div class="thumb-wrap" data-index="2"><img src="assets/dior-3.jpg.PNG" alt="Thumb 3"></div>
+                                <div class="thumb-wrap" data-index="3"><img src="assets/dior-4.jpg.PNG" alt="Thumb 4"></div>
                             </div>
                         </div>
                     </div>
-                    <div class="photo-card">
-                        <div class="photo-wrapper">
-                            <img src="assets/photo2.PNG" alt="Creative Work 2">
-                            <div class="photo-overlay">
-                                <i class="fas fa-expand"></i>
+                    
+                    <!-- Product 2: Dr Pepper -->
+                    <div class="product-card" data-product="drpepper">
+                        <h3 class="product-title">Dr Pepper</h3>
+                        <div class="carousel-container">
+                            <div class="carousel-main" tabindex="0">
+                                <img src="assets/drpepper-1.jpg.PNG" alt="Dr Pepper Angle 1" class="carousel-img active">
+                                <img src="assets/drpepper-2.jpg.PNG" alt="Dr Pepper Angle 2" class="carousel-img">
+                                <img src="assets/drpepper-3.jpg.PNG" alt="Dr Pepper Angle 3" class="carousel-img">
+                                <img src="assets/drpepper-4.jpg.PNG" alt="Dr Pepper Angle 4" class="carousel-img">
+                                
+                                <button class="carousel-btn prev-btn" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
+                                <button class="carousel-btn next-btn" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
+                                <div class="carousel-counter">1 / 4</div>
+                            </div>
+                            <div class="carousel-thumbs">
+                                <div class="thumb-wrap active" data-index="0"><img src="assets/drpepper-1.jpg.PNG" alt="Thumb 1"></div>
+                                <div class="thumb-wrap" data-index="1"><img src="assets/drpepper-2.jpg.PNG" alt="Thumb 2"></div>
+                                <div class="thumb-wrap" data-index="2"><img src="assets/drpepper-3.jpg.PNG" alt="Thumb 3"></div>
+                                <div class="thumb-wrap" data-index="3"><img src="assets/drpepper-4.jpg.PNG" alt="Thumb 4"></div>
                             </div>
                         </div>
                     </div>
-                    <div class="photo-card">
-                        <div class="photo-wrapper">
-                            <img src="assets/photo3.PNG" alt="Creative Work 3">
-                            <div class="photo-overlay">
-                                <i class="fas fa-expand"></i>
+
+                    <!-- Product 3: Watch -->
+                    <div class="product-card" data-product="watch">
+                        <h3 class="product-title">Watch</h3>
+                        <div class="carousel-container">
+                            <div class="carousel-main" tabindex="0">
+                                <img src="assets/watch-1.jpg.PNG" alt="Watch Angle 1" class="carousel-img active">
+                                <img src="assets/watch-2.jpg.PNG" alt="Watch Angle 2" class="carousel-img">
+                                <img src="assets/watch-3.jpg.PNG" alt="Watch Angle 3" class="carousel-img">
+                                <img src="assets/watch-4.jpg.PNG" alt="Watch Angle 4" class="carousel-img">
+                                
+                                <button class="carousel-btn prev-btn" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
+                                <button class="carousel-btn next-btn" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
+                                <div class="carousel-counter">1 / 4</div>
+                            </div>
+                            <div class="carousel-thumbs">
+                                <div class="thumb-wrap active" data-index="0"><img src="assets/watch-1.jpg.PNG" alt="Thumb 1"></div>
+                                <div class="thumb-wrap" data-index="1"><img src="assets/watch-2.jpg.PNG" alt="Thumb 2"></div>
+                                <div class="thumb-wrap" data-index="2"><img src="assets/watch-3.jpg.PNG" alt="Thumb 3"></div>
+                                <div class="thumb-wrap" data-index="3"><img src="assets/watch-4.jpg.PNG" alt="Thumb 4"></div>
                             </div>
                         </div>
                     </div>
-                    <div class="photo-card">
-                        <div class="photo-wrapper">
-                            <img src="assets/photo4.jpeg" alt="Creative Work 4">
-                            <div class="photo-overlay">
-                                <i class="fas fa-expand"></i>
+
+                    <!-- Product 4: Pringles -->
+                    <div class="product-card" data-product="pringles">
+                        <h3 class="product-title">Pringles</h3>
+                        <div class="carousel-container">
+                            <div class="carousel-main" tabindex="0">
+                                <img src="assets/pringles-1.jpg.jpeg" alt="Pringles Angle 1" class="carousel-img active">
+                                <img src="assets/pringles-2.jpg.jpeg" alt="Pringles Angle 2" class="carousel-img">
+                                <img src="assets/pringles-3.jpg.jpeg" alt="Pringles Angle 3" class="carousel-img">
+                                <img src="assets/pringles-4.jpg.jpeg" alt="Pringles Angle 4" class="carousel-img">
+                                
+                                <button class="carousel-btn prev-btn" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
+                                <button class="carousel-btn next-btn" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
+                                <div class="carousel-counter">1 / 4</div>
+                            </div>
+                            <div class="carousel-thumbs">
+                                <div class="thumb-wrap active" data-index="0"><img src="assets/pringles-1.jpg.jpeg" alt="Thumb 1"></div>
+                                <div class="thumb-wrap" data-index="1"><img src="assets/pringles-2.jpg.jpeg" alt="Thumb 2"></div>
+                                <div class="thumb-wrap" data-index="2"><img src="assets/pringles-3.jpg.jpeg" alt="Thumb 3"></div>
+                                <div class="thumb-wrap" data-index="3"><img src="assets/pringles-4.jpg.jpeg" alt="Thumb 4"></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
+
 
         <!-- Why Choose Me Section -->
         <section class="why-me section bg-darker" id="why-me">
@@ -387,11 +449,7 @@
         </div>
     </div>
 
-    <!-- Photo Lightbox -->
-    <div class="photo-lightbox" id="photoLightbox">
-        <button class="close-modal" aria-label="Close lightbox" id="closeLightbox"><i class="fas fa-times"></i></button>
-        <img src="" alt="Photo Preview" id="lightboxImage">
-    </div>
+
 
     <!-- Script -->
     <script src="js/data.js?v=2"></script>

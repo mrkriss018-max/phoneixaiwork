@@ -273,36 +273,119 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Photo Lightbox Logic
-    const photoLightbox = document.getElementById('photoLightbox');
-    const lightboxImage = document.getElementById('lightboxImage');
-    const closeLightbox = document.getElementById('closeLightbox');
 
-    if (photoLightbox && lightboxImage && closeLightbox) {
-        document.addEventListener('click', (e) => {
-            const card = e.target.closest('.photo-card');
-            if (card) {
-                const img = card.querySelector('.photo-wrapper img');
-                if (img) {
-                    lightboxImage.src = img.src;
-                    photoLightbox.classList.add('active');
-                    document.body.style.overflow = 'hidden';
-                }
+
+    // Product Showcase Carousel Logic
+    const productCards = document.querySelectorAll('.product-card');
+    
+    productCards.forEach(card => {
+        const mainContainer = card.querySelector('.carousel-main');
+        const images = card.querySelectorAll('.carousel-img');
+        const thumbs = card.querySelectorAll('.thumb-wrap');
+        const prevBtn = card.querySelector('.prev-btn');
+        const nextBtn = card.querySelector('.next-btn');
+        const counter = card.querySelector('.carousel-counter');
+        
+        if (!mainContainer || images.length === 0) return;
+        
+        let currentIndex = 0;
+        let autoPlayInterval;
+        let isDragging = false;
+        let startPos = 0;
+        let currentTranslate = 0;
+        
+        function updateCarousel(index) {
+            images.forEach(img => img.classList.remove('active'));
+            thumbs.forEach(t => t.classList.remove('active'));
+            
+            images[index].classList.add('active');
+            thumbs[index].classList.add('active');
+            if(counter) counter.innerText = `${index + 1} / ${images.length}`;
+        }
+        
+        function showNext() {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateCarousel(currentIndex);
+            resetAutoPlay();
+        }
+        
+        function showPrev() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateCarousel(currentIndex);
+            resetAutoPlay();
+        }
+        
+        function resetAutoPlay() {
+            clearInterval(autoPlayInterval);
+            autoPlayInterval = setInterval(showNext, 3000);
+        }
+        
+        // Navigation Buttons
+        if (prevBtn) prevBtn.addEventListener('click', showPrev);
+        if (nextBtn) nextBtn.addEventListener('click', showNext);
+        
+        // Thumbnail Clicks
+        thumbs.forEach((thumb, index) => {
+            thumb.addEventListener('click', () => {
+                currentIndex = index;
+                updateCarousel(currentIndex);
+                resetAutoPlay();
+            });
+        });
+        
+        // Swipe and Drag Logic
+        mainContainer.addEventListener('pointerdown', (e) => {
+            isDragging = true;
+            startPos = e.clientX;
+            mainContainer.style.cursor = 'grabbing';
+            clearInterval(autoPlayInterval); // Pause during drag
+        });
+        
+        mainContainer.addEventListener('pointermove', (e) => {
+            if (!isDragging) return;
+            const currentPosition = e.clientX;
+            currentTranslate = currentPosition - startPos;
+        });
+        
+        mainContainer.addEventListener('pointerup', () => {
+            if (!isDragging) return;
+            isDragging = false;
+            mainContainer.style.cursor = 'grab';
+            
+            if (currentTranslate < -50) {
+                showNext();
+            } else if (currentTranslate > 50) {
+                showPrev();
+            } else {
+                resetAutoPlay(); // Resume if not swiped far enough
+            }
+            currentTranslate = 0;
+        });
+        
+        mainContainer.addEventListener('pointerleave', () => {
+            if (isDragging) {
+                isDragging = false;
+                mainContainer.style.cursor = 'grab';
+                resetAutoPlay();
             }
         });
+        
+        // Initialize
+        updateCarousel(currentIndex);
+        resetAutoPlay();
+    });
 
-        closeLightbox.addEventListener('click', () => {
-            photoLightbox.classList.remove('active');
-            lightboxImage.src = '';
-            document.body.style.overflow = '';
-        });
-
-        photoLightbox.addEventListener('click', (e) => {
-            if (e.target === photoLightbox) {
-                photoLightbox.classList.remove('active');
-                lightboxImage.src = '';
-                document.body.style.overflow = '';
+    // Video Click-to-Unmute Logic
+    const inlineVideos = document.querySelectorAll('.interact-to-unmute');
+    inlineVideos.forEach(video => {
+        video.addEventListener('click', function(e) {
+            if (this.muted) {
+                e.preventDefault();
+                this.muted = false;
+                this.controls = true;
+                // Force play to ensure it continues playing with sound
+                this.play().catch(err => console.error("Video play error:", err));
             }
         });
-    }
+    });
 });
