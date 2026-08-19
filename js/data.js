@@ -56,7 +56,7 @@ window.store = {
     // Portfolio Section
     portfolio: [],
 
-    // Why Choose Me Section
+    // Why Choose Us Section
     reasons: [
         {
             icon: "fas fa-gem",

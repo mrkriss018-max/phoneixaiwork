@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Render Why Choose Me
+    // Render Why Choose Us
     const whyGrid = document.getElementById('whyGrid');
     if (whyGrid && window.store && window.store.reasons) {
         window.store.reasons.forEach(reason => {
