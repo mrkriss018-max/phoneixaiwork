@@ -46,6 +46,7 @@
                     <li><a href="#about" class="nav-link">About</a></li>
                     <li><a href="#services" class="nav-link">Services</a></li>
                     <li><a href="#portfolio" class="nav-link">Video Portfolio</a></li>
+                    <li><a href="#product-showcase" class="nav-link">Product Showcase</a></li>
                     <li><a href="#why-me" class="nav-link">Why Choose Us</a></li>
                     <li><a href="#reviews" class="nav-link">Reviews</a></li>
                     <li><a href="#contact" class="nav-link btn-nav">Contact</a></li>
@@ -67,13 +68,8 @@
                     </div>
                 </div>
                 <div class="hero-visual fade-left">
-                    <div class="ai-hero-container">
-                        <video autoplay muted loop playsinline class="ai-hero-video">
-                            <source src="assets/video1.MP4" type="video/mp4">
-                        </video>
-                        <div class="ai-grid-overlay"></div>
-                        <div class="ai-glow-overlay"></div>
-                        <div class="ai-particles"></div>
+                    <div class="hero-video-collage" id="heroVideoCollage">
+                        <!-- 7 Videos injected dynamically via JS -->
                     </div>
                 </div>
             </div>
@@ -210,6 +206,23 @@
                         <div class="video-box-label"><i class="fas fa-film"></i> Video 6</div>
                         <video autoplay muted loop playsinline class="inline-video interact-to-unmute">
                             <source src="assets/video6.MP4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+
+                <div class="featured-videos-row fade-up">
+                    <!-- Video Box 7 -->
+                    <div class="featured-video-box">
+                        <div class="video-box-label"><i class="fas fa-film"></i> Video 7</div>
+                        <video autoplay muted loop playsinline class="inline-video interact-to-unmute">
+                            <source src="assets/video7.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <!-- Video Box 8 -->
+                    <div class="featured-video-box">
+                        <div class="video-box-label"><i class="fas fa-film"></i> Video 8</div>
+                        <video autoplay muted loop playsinline class="inline-video interact-to-unmute">
+                            <source src="assets/video8.mp4" type="video/mp4">
                         </video>
                     </div>
                 </div>
@@ -457,7 +470,8 @@
 
 
 
-    <!-- Script -->
+    <!-- Scripts -->
+    <script src="js/hero-videos.js"></script>
     <script src="js/data.js?v=2"></script>
     <script src="js/script.js?v=2"></script>
 </body>
