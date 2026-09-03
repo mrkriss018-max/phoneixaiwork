@@ -62,22 +62,6 @@ document.addEventListener('DOMContentLoaded', () => {
         videoEl.appendChild(sourceEl);
 
         tile.appendChild(videoEl);
-        
-        // 2. Click Interaction (Fullscreen Lightbox)
-        tile.addEventListener('click', () => {
-            const videoModal = document.getElementById('videoModal');
-            const videoContainer = document.getElementById('videoContainer');
-            
-            if (videoModal && videoContainer) {
-                videoContainer.innerHTML = `
-                    <video controls autoplay playsinline class="modal-video">
-                        <source src="${vid.src}" type="video/mp4">
-                    </video>
-                `;
-                videoModal.classList.add('active');
-            }
-        });
-
         collageContainer.appendChild(tile);
     });
 

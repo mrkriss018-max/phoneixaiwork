@@ -374,7 +374,7 @@ img {
     border-radius: 6px;
     overflow: hidden;
     background: #050505;
-    cursor: pointer;
+    cursor: default;
     transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.35s ease;
 }
 
@@ -801,6 +801,20 @@ img {
     aspect-ratio: 16/9;
     object-fit: cover;
     cursor: pointer;
+}
+
+/* Ensure full un-cropped frame in native fullscreen mode */
+.inline-video:fullscreen,
+.inline-video:-webkit-full-screen,
+.inline-video:-moz-full-screen,
+.inline-video:-ms-fullscreen {
+    object-fit: contain !important;
+}
+
+/* Ensure uncropped frame when playing inline */
+.inline-video.playing-full {
+    object-fit: contain;
+    background: #000;
 }
 
 /* Photo Portfolio */
@@ -1295,20 +1309,16 @@ img {
     .contact-form {
         padding: 1.5rem;
     }
-    
-    /* 7-Video Collage Mobile (2 Columns) */
-    .hero-video-collage {
-        grid-template-columns: repeat(2, 1fr);
-        grid-auto-rows: 100px;
+
+    /* Disable collage hover states on touch devices */
+    .hero-video-tile {
+        pointer-events: auto;
     }
-    
-    .hero-vid-1 { grid-column: 1 / 3; grid-row: span 2; }
-    .hero-vid-2 { grid-column: span 1; grid-row: span 1; }
-    .hero-vid-3 { grid-column: span 1; grid-row: span 1; }
-    .hero-vid-4 { grid-column: span 1; grid-row: span 1; }
-    .hero-vid-5 { grid-column: span 1; grid-row: span 1; }
-    .hero-vid-6 { grid-column: span 1; grid-row: span 1; }
-    .hero-vid-7 { grid-column: span 1; grid-row: span 1; }
+    .hero-video-tile:hover {
+        transform: none;
+        filter: none;
+        z-index: 1;
+    }
 }
 
 /* ==========================================================================

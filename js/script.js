@@ -375,16 +375,44 @@ document.addEventListener('DOMContentLoaded', () => {
         resetAutoPlay();
     });
 
-    // Video Click-to-Unmute Logic
+    // Video Click-to-Unmute Logic (Exclusive Playback)
     const inlineVideos = document.querySelectorAll('.interact-to-unmute');
     inlineVideos.forEach(video => {
         video.addEventListener('click', function(e) {
-            if (this.muted) {
+            if (this.muted || this.paused) {
                 e.preventDefault();
+                
+                // Mute all OTHER videos but keep them playing
+                inlineVideos.forEach(otherVideo => {
+                    if (otherVideo !== this) {
+                        otherVideo.muted = true;
+                        otherVideo.controls = false;
+                        otherVideo.classList.remove('playing-full');
+                        otherVideo.play().catch(e => console.log(e)); // Keep background motion going
+                    }
+                });
+
+                // Unmute and play THIS video
                 this.muted = false;
                 this.controls = true;
+                this.classList.add('playing-full');
                 // Force play to ensure it continues playing with sound
                 this.play().catch(err => console.error("Video play error:", err));
+            }
+        });
+
+        // Revert to normal muted loop when the user hits pause
+        video.addEventListener('pause', function() {
+            // Only revert if the video was actively in "unmuted/controls" mode
+            if (this.controls) {
+                this.muted = true;
+                this.controls = false;
+                this.classList.remove('playing-full');
+                
+                // Small timeout to prevent clashing with the browser's native pause action
+                setTimeout(() => {
+                    this.play().catch(e => console.log(e));
+                }, 50);
             }
         });
     });
