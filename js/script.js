@@ -416,27 +416,4 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-
-    // Lazy load and play portfolio videos only when scrolled into view
-    const lazyVideoObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const video = entry.target;
-                // Only attempt to play if it's currently paused and muted (background state)
-                if (video.paused && video.muted) {
-                    video.play().catch(err => console.log("Lazy play error:", err));
-                }
-            } else {
-                const video = entry.target;
-                // Pause it when it leaves the screen to save CPU/Network, but only if it's in background state
-                if (!video.controls) {
-                    video.pause();
-                }
-            }
-        });
-    }, { rootMargin: '200px' });
-
-    inlineVideos.forEach(video => {
-        lazyVideoObserver.observe(video);
-    });
 });
