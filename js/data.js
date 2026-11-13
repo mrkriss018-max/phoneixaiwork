@@ -16,16 +16,10 @@ window.store = {
             delay: "delay-1"
         },
         {
-            icon: "fas fa-cut",
-            title: "Video Editing",
-            description: "Professional post-production, color grading, and dynamic cuts.",
-            delay: "delay-2"
-        },
-        {
             icon: "fas fa-share-alt",
             title: "Social Media Content",
             description: "Tailored posts designed for engagement and brand growth.",
-            delay: "delay-3"
+            delay: "delay-2"
         },
         {
             icon: "fas fa-magic",
@@ -34,22 +28,16 @@ window.store = {
             delay: ""
         },
         {
-            icon: "fas fa-paint-brush",
-            title: "Canva Design",
-            description: "Clean, modern graphic design for everyday marketing needs.",
-            delay: "delay-1"
-        },
-        {
             icon: "fas fa-bullhorn",
             title: "Brand Creatives",
             description: "End-to-end creative assets for your marketing campaigns.",
-            delay: "delay-2"
+            delay: "delay-1"
         },
         {
             icon: "fab fa-instagram",
             title: "Short-Form Ads",
             description: "Optimized vertical video for IG Reels, TikTok, and WhatsApp.",
-            delay: "delay-3"
+            delay: "delay-2"
         }
     ],
 
